@@ -93,7 +93,7 @@ https://github.com/angular/angular-cli[Angular CLI] uses Chrome for running your
 development, when running your tests in the Continuous Integration environment, you need a headless browser. These are
 steps we made to make your tests being executed against the http://phantomjs.org/[PhantomJS] browser:
 
-==== Install the http://phantomjs.org/[PhantomJS] launcher for karma-runner.github.io/[Karma]
+==== Install the http://phantomjs.org/[PhantomJS] launcher for https://karma-runner.github.io/[Karma]
 
 Use https://yarnpkg.com/[Yarn] to install the http://phantomjs.org/[PhantomJS] launcher for https://karma-runner.github.io/[Karma]
 
