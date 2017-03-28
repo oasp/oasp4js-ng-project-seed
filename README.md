@@ -1,1 +1,0 @@
-# oasp4js-ng-project-seed
