@@ -9,3 +9,8 @@ before_install:
   - sh -e /etc/init.d/xvfb start
 before_script:
   - npm install -g @angular/cli
+script:
+  - npm run-script build:dist
+  - npm run-script test:coverage
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
