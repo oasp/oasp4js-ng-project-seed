@@ -1,25 +1,24 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {BookDetailsComponent} from './book-details.component';
-import {FormsModule} from '@angular/forms';
+import {BookOverviewComponent} from './book-overview.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {BookService} from '../book.service';
 
-describe('BookDetailsComponent', () => {
-  let component: BookDetailsComponent;
-  let fixture: ComponentFixture<BookDetailsComponent>;
+describe('BookOverviewComponent', () => {
+  let component: BookOverviewComponent;
+  let fixture: ComponentFixture<BookOverviewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BookDetailsComponent],
-      imports: [FormsModule, RouterTestingModule],
+      declarations: [BookOverviewComponent],
+      imports: [RouterTestingModule],
       providers: [BookService]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BookDetailsComponent);
+    fixture = TestBed.createComponent(BookOverviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

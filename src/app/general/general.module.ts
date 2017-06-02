@@ -1,13 +1,17 @@
 import {NgModule} from '@angular/core';
-import {AppNavComponent} from './app-nav/app-nav.component';
-import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import { NavComponent } from './nav/nav.component';
+import {RouterModule} from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
-    imports: [CommonModule, RouterModule, NgbModule],
-    declarations: [AppNavComponent],
-    exports: [AppNavComponent]
+  imports: [
+    CommonModule,
+    RouterModule,
+    NgbModule
+  ],
+  declarations: [NavComponent],
+  exports: [NavComponent]
 })
 export class GeneralModule {
 }

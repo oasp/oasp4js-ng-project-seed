@@ -1,14 +1,19 @@
-import { Oasp4jsNgCliProjectSeedPage } from './app.po';
+import { AppVeryFirstPage } from './app.po';
 
-describe('oasp4js-ng-cli-project-seed App', () => {
-  let page: Oasp4jsNgCliProjectSeedPage;
+describe('oasp4js-ng-project-seed App', () => {
+  let page: AppVeryFirstPage;
 
   beforeEach(() => {
-    page = new Oasp4jsNgCliProjectSeedPage();
+    page = new AppVeryFirstPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display navigation bar', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getNavigationElement()).toBeDefined();
+  });
+
+  it('should display message saying no books available', () => {
+    page.navigateTo();
+    expect(page.getTextOnNoBooksAvailable()).toEqual('No books available. Add a new one.');
   });
 });

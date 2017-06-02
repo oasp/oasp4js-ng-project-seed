@@ -1,11 +1,15 @@
 import { browser, element, by } from 'protractor';
 
-export class Oasp4jsNgCliProjectSeedPage {
+export class AppVeryFirstPage {
   navigateTo() {
     return browser.get('/');
   }
 
-  getParagraphText() {
-    return element(by.css('app h1')).getText();
+  getNavigationElement() {
+    return element(by.css('app-root app-nav'));
+  }
+
+  getTextOnNoBooksAvailable() {
+    return element(by.css('app-root app-book-overview p')).getText();
   }
 }

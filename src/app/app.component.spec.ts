@@ -1,28 +1,36 @@
-/* tslint:disable:no-unused-variable */
-import {AppComponent} from './app.component';
-import {TestBed, async} from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
+
+import { AppComponent } from './app.component';
+import {RouterTestingModule} from '@angular/router/testing';
 import {GeneralModule} from './general/general.module';
 import {BookMgmtModule} from './book-mgmt/book-mgmt.module';
-import {Type} from '@angular/core';
-import {RouterTestingModule} from '@angular/router/testing';
-import {ComponentFixture} from '@angular/core/testing/component_fixture';
+import {BookService} from './book-mgmt/book.service';
 
-describe('AppComponent with TCB', function () {
-    let fixture: ComponentFixture<AppComponent>;
-    let component: AppComponent;
+describe('AppComponent', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        AppComponent
+      ],
+      imports: [
+        RouterTestingModule,
+        GeneralModule,
+        BookMgmtModule
+      ],
+      providers: [BookService],
+    }).compileComponents();
+  }));
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [BookMgmtModule, GeneralModule, RouterTestingModule],
-            declarations: [AppComponent]
-        }).compileComponents().then(() => {
-            fixture = TestBed.createComponent(AppComponent as Type<AppComponent>);
-            component = fixture.componentInstance;
-        });
-    }));
+  it('should create the app', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  }));
 
-    it('should instantiate component', () => {
-        fixture.detectChanges(); // triggers AppComponent.ngOnInit()
-        expect(component instanceof AppComponent).toBe(true, 'should create AppComponent');
-    });
+  it('should render navigation bar', async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-nav ul li a').textContent).toContain('Book Overview');
+  }));
 });

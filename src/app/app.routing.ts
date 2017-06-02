@@ -4,20 +4,25 @@ import {BookDetailsComponent} from './book-mgmt/book-details/book-details.compon
 
 export const APP_ROUTES: Routes = [
   {
-    path: 'book-mgmt/books',
-    component: BookOverviewComponent
-  },
-  {
-    path: 'book-mgmt/book',
-    component: BookDetailsComponent
-  },
-  {
-    path: 'book-mgmt/book/:bookId',
-    component: BookDetailsComponent
+    path: 'app',
+    children: [
+      {
+        path: 'books',
+        component: BookOverviewComponent
+      },
+      {
+        path: 'book',
+        component: BookDetailsComponent
+      },
+      {
+        path: 'book/:bookId',
+        component: BookDetailsComponent
+      }
+    ]
   },
   {
     path: '',
-    redirectTo: '/book-mgmt/books',
+    redirectTo: '/app/books',
     pathMatch: 'full'
   }
 ];

@@ -1,21 +1,22 @@
-import {Component, OnInit} from '@angular/core';
-import {BookService, Book} from "../book.service";
+import { Component, OnInit } from '@angular/core';
+import {Book, BookService} from '../book.service';
 
 @Component({
-    selector: 'app-book-overview',
-    templateUrl: './book-overview.component.html'
+  selector: 'app-book-overview',
+  templateUrl: './book-overview.component.html'
 })
 export class BookOverviewComponent implements OnInit {
-    currentBooks: Book[];
 
-    constructor(private bookService: BookService) {
-    }
+  currentBooks: Book[];
 
-    ngOnInit(): void {
-        this.currentBooks = this.bookService.findAll();
-    }
+  constructor(private bookService: BookService) {
+  }
 
-    thereAreBooksToDisplay(): boolean {
-        return this.currentBooks && this.currentBooks.length > 0;
-    }
+  ngOnInit(): void {
+    this.currentBooks = this.bookService.findAll();
+  }
+
+  thereAreBooksToDisplay(): boolean {
+    return this.currentBooks && this.currentBooks.length > 0;
+  }
 }
