@@ -72,6 +72,7 @@ and start the application
 
 ----
 ng serve
+
 ----
 
 == How we created the application
@@ -117,13 +118,24 @@ plugins: [
 ...
 ----
 
-Enable (uncomment) some polyfills needed by the http://phantomjs.org/[PhantomJS] (`polyfills.ts`):
+Enable (uncomment) all polyfills required for IE9, IE10 and IE11. Some of them are also needed by the http://phantomjs.org/[PhantomJS] (`polyfills.ts`):
 
 [source, javascript]
 ----
+import 'core-js/es6/symbol';
 import 'core-js/es6/object';
+import 'core-js/es6/function';
+import 'core-js/es6/parse-int';
+import 'core-js/es6/parse-float';
+import 'core-js/es6/number';
+import 'core-js/es6/math';
 import 'core-js/es6/string';
+import 'core-js/es6/date';
 import 'core-js/es6/array';
+import 'core-js/es6/regexp';
+import 'core-js/es6/map';
+import 'core-js/es6/weak-map';
+import 'core-js/es6/set';
 ----
 
 Typically the following command should be executed in the Continuous Integration environment:
@@ -144,3 +156,12 @@ yarn add bootstrap@next @ng-bootstrap/ng-bootstrap
 ----
 
 Follow the https://ng-bootstrap.github.io/#/getting-started[ng-bootstrap installation instructions].
+
+==== Make IE users happy
+
+Specify the `x-ua-compatible` meta tag with `edge` mode. This will force Internet Explorer to render the webpage in the highest available mode (`index.html`):
+
+[source, html]
+----
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+----

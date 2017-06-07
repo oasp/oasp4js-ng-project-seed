@@ -1,6 +1,6 @@
 {
   "name": "oasp4js-ng-project-seed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -9,8 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:dist": "ng build --prod",
-    "test:coverage": "ng test --single-run --code-coverage --browsers=PhantomJS"
+    "build4prod": "ng build --prod --aot",
+    "test4ci": "ng test --single-run --code-coverage --browsers=PhantomJS"
   },
   "private": true,
   "dependencies": {
