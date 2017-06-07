@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build4prod": "ng build --prod --aot",
+    "build4prod": "ng build --prod --aot --base-href \"https://oasp.github.io/oasp4js-ng-project-seed/\"",
     "test4ci": "ng test --single-run --code-coverage --browsers=PhantomJS"
   },
   "private": true,
