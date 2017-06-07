@@ -13,6 +13,9 @@ before_script:
 script:
   - npm run-script build4prod
   - npm run-script test4ci
-  - ngh --repo=https://GH_TOKEN@github.com/oasp/oasp4js-ng-project-seed.git --name="oasp4js-build" --email=GH_EMAIL
+  - export BRANCH_NAME=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+  - if [ "$BRANCH_NAME" == "master" ]; then
+      ngh --repo=https://GH_TOKEN@github.com/oasp/oasp4js-ng-project-seed.git --name="oasp4js-build" --email=GH_EMAIL;
+    fi
 after_success:
   - bash <(curl -s https://codecov.io/bash)
