@@ -17,7 +17,7 @@ export class BookDetailsComponent implements OnInit {
 
   private static createErrorMessage(errorObject: {[key: string]: any}): string {
     if (errorObject) {
-      for (let errorCode in errorObject) {
+      for (const errorCode in errorObject) {
         if (errorObject.hasOwnProperty(errorCode)) {
           switch (errorCode) {
             case 'required':
@@ -60,8 +60,8 @@ export class BookDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       if (params['bookId']) {
-        let bookId: number = +params['bookId'];
-        let foundBook: Book = this.bookService.findOne(bookId);
+        const bookId: number = +params['bookId'];
+        const foundBook: Book = this.bookService.findOne(bookId);
         if (foundBook) {
           this.currentBook = foundBook;
         } else {

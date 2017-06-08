@@ -1,29 +1,20 @@
-<section class="book-details container">
-  <form #bookForm="ngForm" (ngSubmit)="save()" [class.ng-submitted]="submitted" novalidate>
-    <div class="form-group row" [class.has-danger]="isFieldInvalid('titleField')">
-      <label for="title" class="col-lg-1 col-form-label">Title:</label>
-      <div class="col-lg-4">
-        <input id="title" name="titleField" type="text" [(ngModel)]="currentBook.title"
-               class="form-control form-control-danger" required maxlength="50">
+<md-card>
+  <md-card-title>Book Details</md-card-title>
+  <md-divider></md-divider>
+  <md-card-content>
+    <form #bookForm="ngForm" (ngSubmit)="save()" [class.ng-submitted]="submitted" novalidate>
+      <div layout="column" flex>
+        <md-input-container flex>
+          <input mdInput placeholder="Title" id="title" name="titleField" type="text" [(ngModel)]="currentBook.title" required>
+          <md-error>{{ getErrorMessageOfField('titleField') }}</md-error>
+        </md-input-container>
+        <md-input-container flex>
+          <input mdInput placeholder="Author" id="author" name="authorField" type="text" [(ngModel)]="currentBook.author" required>
+          <md-error>{{ getErrorMessageOfField('authorField') }}</md-error>
+        </md-input-container>
+        <br>
+        <button type="submit" md-raised-button color="primary">Save</button>
       </div>
-      <div class="col-lg-7 form-control-feedback">{{ getErrorMessageOfField('titleField') }}</div>
-    </div>
-
-    <div class="form-group row has-danger" [class.has-danger]="isFieldInvalid('authorField')">
-      <label for="author" class="col-lg-1 col-form-label">Author:</label>
-      <div class="col-lg-4">
-        <input id="author" name="authorField" type="text" [(ngModel)]="currentBook.author"
-               class="form-control form-control-danger" required maxlength="15">
-      </div>
-      <div class="col-lg-7 form-control-feedback">{{ getErrorMessageOfField('authorField') }}</div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-1">
-      </div>
-      <div class="col-lg-4">
-        <button type="submit" class="btn btn-primary">Save</button>
-      </div>
-    </div>
-  </form>
-</section>
+    </form>
+  </md-card-content>
+</md-card>

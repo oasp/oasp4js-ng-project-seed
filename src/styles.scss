@@ -1,23 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
-@import '../node_modules/bootstrap/scss/bootstrap';
+@import '~@angular/material/theming';
 
-.app {
-  app-nav {
-    display: block;
-    margin-bottom: 20px;
-  }
+// NOTE: Theming is currently experimental and not yet publically released!
 
-  input.ng-invalid.ng-touched {
-    border-color: red;
-  }
+@include mat-core();
 
-  form.ng-submitted {
-    input.ng-invalid {
-      border-color: red;
-    }
-  }
+$primary: mat-palette($mat-teal);
+$accent:  mat-palette($mat-green);
 
-  span.error-msg {
-    color: red;
-  }
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
+
+.m2app-dark {
+  $dark-primary: mat-palette($mat-blue-grey);
+  $dark-accent:  mat-palette($mat-blue-grey);
+  $dark-warn:    mat-palette($mat-deep-orange);
+
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+  @include angular-material-theme($dark-theme);
+}
+
+.mat-icon.md-icon-logo {
+  height: 50px !important;
+}
+
+td-layout-footer {
+  background: #ddd;
 }

@@ -1,6 +1,7 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { CovalentModule } from '../../covalent/covalent.module';
 
-import {NavComponent} from './nav.component';
+import { NavComponent } from './nav.component';
 
 describe('NavComponent', () => {
   let component: NavComponent;
@@ -8,6 +9,9 @@ describe('NavComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        CovalentModule
+      ],
       declarations: [NavComponent]
     })
       .compileComponents();
@@ -27,9 +31,9 @@ describe('NavComponent', () => {
     fixture = TestBed.createComponent(NavComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    const linkElements = compiled.querySelectorAll('ul li');
-    expect(linkElements.length).toBe(2);
-    expect(linkElements[0].querySelector('a').textContent).toContain('Book Overview');
-    expect(linkElements[1].querySelector('a').textContent).toContain('New Book');
+    const linkElements = compiled.querySelectorAll('span a');
+    console.log(linkElements[0].querySelector('h3').textContent);
+    expect(linkElements[0].querySelector('h3').textContent).toContain('Book Overview');
+    expect(linkElements[1].querySelector('h3').textContent).toContain('New Book');
   }));
 });

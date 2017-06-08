@@ -13,11 +13,16 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular/cli/plugins/karma')
     ],
+    browserNoActivityTimeout: 60000,
     client:{
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     files: [
-      { pattern: './src/test.ts', watched: false }
+      // Include all Angular dependencies
+      { pattern: 'node_modules/@angular/**/*', included: false, watched: false},
+      { pattern: 'node_modules/rxjs/**/*.js', included: false, watched: false},
+      { pattern: './src/test.ts', watched: false },
+      { pattern: 'node_modules/@angular/material/prebuilt-themes/indigo-pink.css'},
     ],
     preprocessors: {
       './src/test.ts': ['@angular/cli']
