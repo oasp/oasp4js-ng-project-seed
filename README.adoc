@@ -7,6 +7,10 @@ image:https://img.shields.io/travis/oasp/oasp4js-ng-project-seed/master.svg[Buil
 image:https://img.shields.io/codecov/c/github/oasp/oasp4js-ng-project-seed/master.svg[Code Coverage, link=https://codecov.io/gh/oasp/oasp4js-ng-project-seed]
 image:https://www.versioneye.com/user/projects/59315f2e22f278003c5f84d5/badge.svg[Dependency Status, link=https://www.versioneye.com/user/projects/59315f2e22f278003c5f84d5]
 
+See the sample app https://oasp.github.io/oasp4js-ng-project-seed[here].
+
+We built also our Project Seed on top of https://projects.spring.io/spring-boot[Spring Boot]. Check it out https://github.com/oasp/oasp4js-ng-boot-project-seed[here]!
+
 == Getting started
 
 === Install prerequisites
