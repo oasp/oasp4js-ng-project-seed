@@ -3,9 +3,9 @@
 This is an Angular Project Seed recommended by OASP4JS. The Project Seed is in fact a simple application built upon
 the https://github.com/angular/angular-cli[Angular CLI].
 
-image:https://img.shields.io/travis/oasp/oasp4js-ng-project-seed/develop-ng4.svg[Build Status (Travis CI), link=https://travis-ci.org/oasp/oasp4js-ng-project-seed]
-image:https://img.shields.io/codecov/c/github/oasp/oasp4js-ng-project-seed/develop-ng4.svg[Code Coverage, link=https://codecov.io/gh/oasp/oasp4js-ng-project-seed]
-image:https://www.versioneye.com/user/projects/58de741a26a5bb0038e4218a/badge.svg[Dependency Status, link=https://www.versioneye.com/user/projects/58de741a26a5bb0038e4218a]
+image:https://img.shields.io/travis/oasp/oasp4js-ng-project-seed/master.svg[Build Status (Travis CI), link=https://travis-ci.org/oasp/oasp4js-ng-project-seed]
+image:https://img.shields.io/codecov/c/github/oasp/oasp4js-ng-project-seed/master.svg[Code Coverage, link=https://codecov.io/gh/oasp/oasp4js-ng-project-seed]
+image:https://www.versioneye.com/user/projects/59315f2e22f278003c5f84d5/badge.svg[Dependency Status, link=https://www.versioneye.com/user/projects/59315f2e22f278003c5f84d5]
 
 == Getting started
 
@@ -16,7 +16,7 @@ It is highly recommended to use the following versions:
 
 * Node.js 6.9.5
 * Yarn 0.21.3
-* Angular CLI 1.0.0
+* Angular CLI 1.1.0
 
 ==== Git
 Check if you have a Git client already installed:
