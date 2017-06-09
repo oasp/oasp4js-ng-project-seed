@@ -1,9 +1,10 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-
-import {BookDetailsComponent} from './book-details.component';
-import {FormsModule} from '@angular/forms';
-import {RouterTestingModule} from '@angular/router/testing';
-import {BookService} from '../book.service';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BookDetailsComponent } from './book-details.component';
+import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CovalentModule } from '../../covalent/covalent.module';
+import { BookService } from '../book.service';
 
 describe('BookDetailsComponent', () => {
   let component: BookDetailsComponent;
@@ -12,7 +13,12 @@ describe('BookDetailsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BookDetailsComponent],
-      imports: [FormsModule, RouterTestingModule],
+      imports: [
+        BrowserAnimationsModule,
+        FormsModule,
+        RouterTestingModule,
+        CovalentModule
+      ],
       providers: [BookService]
     })
       .compileComponents();

@@ -1,2 +1,19 @@
-<app-nav></app-nav>
-<router-outlet></router-outlet>
+<td-layout-nav-list #navList
+      logo="assets:oasp"
+      toolbarTitle="OASP4JS"
+      navigationRoute="/"
+      [opened]="media.registerQuery('gt-sm') | async"
+      [mode]="(media.registerQuery('gt-sm') | async) ? 'side' : 'over'"
+      [sidenavWidth]="(media.registerQuery('gt-xs') | async) ? '280px' : '100%'">
+  <md-nav-list td-sidenav-content (click)="!media.query('gt-sm') && navList.close()">
+    <app-nav></app-nav>
+  </md-nav-list>
+  <div td-toolbar-content layout="row" flex>
+    <span>Book Management</span>
+    <span flex></span>
+  </div>
+  <router-outlet></router-outlet>
+  <td-layout-footer>
+    OASP4JS Covalent - Angular Material
+  </td-layout-footer>
+</td-layout-nav-list>

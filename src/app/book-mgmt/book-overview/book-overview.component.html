@@ -1,23 +1,40 @@
-<section class="container-fluid">
-  <section [hidden]="thereAreBooksToDisplay()">
-    <p>No books available. <a routerLink="/app/book">Add a new one</a>.</p>
-  </section>
-  <section [hidden]="!thereAreBooksToDisplay()">
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>Author</th>
-        <th>Title</th>
-        <th>&nbsp;</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let book of currentBooks">
-        <td>{{book.author}}</td>
-        <td>{{book.title}}</td>
-        <td><a [routerLink]="['/app/book', book.id]">Details</a></td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-</section>
+<md-card>
+  <md-card-title>Book Overview</md-card-title>
+  <md-divider></md-divider>
+  <md-card-content>
+    <div [hidden]="!thereAreBooksToDisplay()">
+      <div layout="row" layout-align="start center" class="pad-left-sm pad-right-sm">
+        <span *ngIf="!searchBox.searchVisible" class="push-left-sm">
+          <span class="md-title">Title here</span>
+        </span>
+        <td-search-box #searchBox backIcon="arrow_back" class="push-right-sm" placeholder="Search here" (searchDebounce)="search($event)" flex>
+        </td-search-box>
+      </div>
+      <md-divider></md-divider>
+      <td-data-table
+        #dataTable
+        [data]="filteredData"
+        [columns]="columns"
+        selectable="false"
+        clickable="true"
+        multiple="false"
+        [sortable]="true"
+        [sortBy]="sortBy"
+        [sortOrder]="sortOrder"
+        (sortChange)="sort($event)"
+        (rowClick)="edit($event)">
+      </td-data-table>
+      <div class="md-padding" *ngIf="!dataTable.hasData" layout="row" layout-align="center center">
+        <h3>No results to display.</h3>
+      </div>
+      <td-paging-bar #pagingBar [pageSizes]="[5, 10, 15, 20]" [total]="filteredTotal" (change)="page($event)">
+        <span td-paging-bar-label hide-xs>Row per page:</span>
+        {{pagingBar.range}} <span hide-xs>of {{pagingBar.total}}</span>
+      </td-paging-bar>
+    </div>
+    <div [hidden]="thereAreBooksToDisplay()">
+      <p>No books available.</p>
+      <a routerLink="/app/book" md-raised-button color="primary">Add a new one</a>
+    </div>
+  </md-card-content>
+</md-card>

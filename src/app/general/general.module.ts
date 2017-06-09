@@ -1,14 +1,15 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
+import { CovalentModule } from '../covalent/covalent.module';
 import { NavComponent } from './nav/nav.component';
-import {RouterModule} from '@angular/router';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    NgbModule
+    CovalentModule
   ],
   declarations: [NavComponent],
   exports: [NavComponent]

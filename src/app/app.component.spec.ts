@@ -1,10 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {GeneralModule} from './general/general.module';
-import {BookMgmtModule} from './book-mgmt/book-mgmt.module';
-import {BookService} from './book-mgmt/book.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { GeneralModule } from './general/general.module';
+import { BookMgmtModule } from './book-mgmt/book-mgmt.module';
+import { CovalentModule } from './covalent/covalent.module';
+import { HttpModule } from '@angular/http';
+import { BookService } from './book-mgmt/book.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,7 +16,9 @@ describe('AppComponent', () => {
       ],
       imports: [
         RouterTestingModule,
+        CovalentModule,
         GeneralModule,
+        HttpModule,
         BookMgmtModule
       ],
       providers: [BookService],
@@ -31,6 +35,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('app-nav ul li a').textContent).toContain('Book Overview');
+    expect(compiled.querySelector('td-layout-nav-list md-nav-list app-nav')).toBeTruthy();
   }));
 });

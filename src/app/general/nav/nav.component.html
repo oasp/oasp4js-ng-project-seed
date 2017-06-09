@@ -1,22 +1,13 @@
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right"
-          type="button"
-          aria-controls="navbarSupportedContent"
-          aria-label="Toggle navigation"
-          [attr.aria-expanded]="!navCollapsed"
-          [class.collapsed]="navCollapsed"
-          (click)="toggleNavigation()">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="#"><img src="assets/oasp-logo-72dpi.png" height="25"></a>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.show]="!navCollapsed">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/app/books">Book Overview</a>
-      </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/app/book">New Book</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+<span>
+  <a md-list-item routerLinkActive="active" routerLink="/app/books">
+    <md-icon md-list-avatar>view_list</md-icon>
+    <h3 md-line>Book Overview</h3>
+    <p md-line>View the book list</p>
+  </a>
+  <md-divider md-inset></md-divider>
+  <a md-list-item routerLinkActive="active" routerLink="/app/book">
+    <md-icon md-list-avatar>library_add</md-icon>
+    <h3 md-line>New Book</h3>
+    <p md-line>Add a new book</p>
+  </a>
+</span>
